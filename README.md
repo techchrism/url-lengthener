@@ -1,4 +1,6 @@
-# url-lengthener
+# Url Lengthener
+
+A response to all the url shortener portfolio stuffers
 
 ## Project setup
 ```
@@ -14,6 +16,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
