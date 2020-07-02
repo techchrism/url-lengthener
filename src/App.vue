@@ -14,16 +14,23 @@
         </v-app-bar>
 
         <v-main>
-            Hello
+            <v-container>
+                <v-row class="text-center">
+                    <v-col cols="12">
+                        <encode/>
+                    </v-col>
+                </v-row>
+            </v-container>
         </v-main>
     </v-app>
 </template>
 
 <script>
     import DarkSwitch from './components/DarkSwitch';
+    import Encode from './components/Encode';
 
     export default {
         name: 'App',
-        components: {DarkSwitch}
+        components: {Encode, DarkSwitch}
     };
 </script>

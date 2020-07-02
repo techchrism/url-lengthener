@@ -2,25 +2,36 @@ import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify/lib';
 import localforage from 'localforage';
+import {aaaDecode} from './aaaEncoding';
 
-localforage.config({
-    name: 'url-lengthener'
-});
-
-Vue.config.productionTip = false;
-Vue.use(Vuetify);
-
-localforage.getItem('theme').then(theme =>
+if(window.location.hash === '')
 {
-    new Vue({
-        vuetify: new Vuetify({
-            theme: {
-                dark: theme !== 'light'
+    localforage.config({
+        name: 'url-lengthener'
+    });
+    
+    Vue.config.productionTip = false;
+    Vue.use(Vuetify);
+    
+    localforage.getItem('theme').then(theme =>
+    {
+        new Vue({
+            vuetify: new Vuetify({
+                theme: {
+                    dark: theme !== 'light'
+                }
+            }),
+            render: function(h)
+            {
+                return h(App);
             }
-        }),
-        render: function(h)
-        {
-            return h(App);
-        }
-    }).$mount('#app');
-});
+        }).$mount('#app');
+    });
+}
+else
+{
+    window.onload = function()
+    {
+        window.location.href = aaaDecode(window.location.hash.substring(1));
+    }
+}
