@@ -15,6 +15,11 @@ if(window.location.hash === '')
     
     localforage.getItem('theme').then(theme =>
     {
+        if(!theme)
+        {
+            theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        
         new Vue({
             vuetify: new Vuetify({
                 theme: {
