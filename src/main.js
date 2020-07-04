@@ -37,6 +37,10 @@ else
 {
     window.onload = function()
     {
-        window.location.href = aaaDecode(window.location.hash.substring(1));
+        const loc = aaaDecode(window.location.hash.substring(1));
+        if(loc.startsWith('http://') || loc.startsWith('https://'))
+        {
+            window.location.href = loc;
+        }
     }
 }
