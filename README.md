@@ -2,6 +2,8 @@
 
 A response to all the url shortener portfolio stuffers
 
+This project encodes the input url into the hash of its own url and redirects when loaded
+
 ## Project setup
 ```
 npm install
