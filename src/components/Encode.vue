@@ -15,19 +15,20 @@
 </template>
 
 <script>
-    import {aaaEncode} from '../aaaEncoding';
+    import {encodingTypes} from '@/encoding/EncodingLibrary';
     import TextShare from './TextShare';
 
     export default {
         name: 'Encode',
         components: {TextShare},
         data: () => ({
-            url: 'https://example.com'
+            url: 'https://example.com',
+            selectedType: encodingTypes[0]
         }),
         computed: {
             encoded()
             {
-                return aaaEncode(this.url);
+                return this.selectedType.encode(this.url);
             },
             redirectUrl()
             {

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify/lib';
 import localforage from 'localforage';
-import {aaaDecode} from './aaaEncoding';
+import {decode} from '@/encoding/EncodingLibrary';
 
 if(window.location.hash === '')
 {
@@ -37,7 +37,7 @@ else
 {
     window.onload = function()
     {
-        const loc = aaaDecode(window.location.hash.substring(1));
+        const loc = decode(window.location.hash.substring(1));
         if(loc.startsWith('http://') || loc.startsWith('https://'))
         {
             window.location.href = loc;
