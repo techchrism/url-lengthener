@@ -1,7 +1,7 @@
-import AAAEncoding from './AAAEncoding';
+import BasicBinaryEncoding from '@/encoding/BasicBinaryEncoding';
 
 const encodingTypes = [
-    new AAAEncoding()
+    new BasicBinaryEncoding('AAAA', 'A', 'a')
 ];
 
 function getTypeFor(str)
@@ -11,6 +11,7 @@ function getTypeFor(str)
         console.log(`Checking ${str} on ${check.getName()}`);
         if(check.is(str))
         {
+            console.log('Passed');
             return check;
         }
     }
