@@ -5,16 +5,16 @@ export default class BasicBinaryEncoding extends EncodingType
     constructor(name, one, zero)
     {
         super();
-        this.name = name;
+        this.nameText = name;
         this.one = one;
         this.zero = zero;
         this.oneRegex = new RegExp(one, 'g');
         this.zeroRegex = new RegExp(zero, 'g');
     }
     
-    getName()
+    get name()
     {
-        return this.name;
+        return this.nameText;
     }
     
     encode(str)

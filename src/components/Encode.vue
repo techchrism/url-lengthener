@@ -1,6 +1,12 @@
 <template>
     <v-card>
         <v-card-text>
+            <v-select :items="encodingTypes"
+                      item-text="name"
+                      v-model="selectedType"
+                      return-object
+                      label="Encoding Type"
+            />
             <v-text-field outlined
                           label="Input URL"
                           v-model="url"
@@ -23,6 +29,7 @@
         components: {TextShare},
         data: () => ({
             url: 'https://example.com',
+            encodingTypes,
             selectedType: encodingTypes[0]
         }),
         computed: {
@@ -33,8 +40,8 @@
             redirectUrl()
             {
                 let url = new URL(window.location);
-                url.hash = this.encoded;
-                return url.toString();
+                url.hash = '';
+                return url.toString() + '#' + this.encoded;
             }
         },
         methods: {

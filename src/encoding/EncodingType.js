@@ -15,7 +15,7 @@ export default class EncodingType
         throw new Error('Checking not defined');
     }
     
-    getName()
+    get name()
     {
         throw new Error('Encoding not defined');
     }

@@ -15,6 +15,8 @@ function getTypeFor(str)
             return check;
         }
     }
+    console.log(`No type for ${str}`);
+    console.log(str[0]);
     return null;
 }
 
